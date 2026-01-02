@@ -1,0 +1,240 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #333;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        @keyframes fullRotation {
+            from { transform: rotate(0deg) scale(1.5); }
+            to { transform: rotate(360deg) scale(1.5); }
+        }
+
+        @keyframes welcomeBounce {
+            0% { transform: scale(0); opacity: 0; }
+            60% { transform: scale(1.1) rotate(5deg); }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: white;
+        }
+
+        .rotating-bg-container {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -2;
+            animation: fullRotation 40s linear infinite;
+            background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(46, 125, 50, 0.85);
+            z-index: -1;
+        }
+
+        .welcome-box h1 {
+            font-size: clamp(2rem, 8vw, 4rem);
+            text-align: center;
+            text-transform: uppercase;
+            padding: 0 20px;
+            animation: welcomeBounce 1.2s ease-out;
+            text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2e7d32;
+            font-weight: 700;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            transform: scale(1.2);
+            color: #4CAF50;
+        }
+
+        .student-profile {
+            display: flex;
+            flex-direction: row;
+            padding: 60px 10%;
+            align-items: center;
+            background: #f9f9f9;
+        }
+
+        .profile-image-area {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .student-photo {
+            width: 100%;
+            max-width: 280px;
+            aspect-ratio: 1 / 1;
+            border-radius: 20px;
+            border: 8px solid rgba(46, 125, 50, 0.85);
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .profile-text {
+            flex: 1.5;
+            padding-left: 50px;
+        }
+
+        .page-section {
+            position: relative;
+            padding: 80px 10%;
+            min-height: 80vh;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page-section::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            z-index: -1;
+        }
+
+        #about { background-image: url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=2070'); }
+        #skills { background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=2070'); }
+        #projects { background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=2070'); }
+        #contact { background-image: url('https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&q=80&w=2070'); }
+
+        .center-wrap { text-align: center; margin-bottom: 40px; width: 100%; }
+        
+        section h2 {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            display: inline-block;
+            border-bottom: 4px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1100px;
+            z-index: 2;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: 0.4s;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            background: #4CAF50;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .contact-link {
+            width: 100%;
+            max-width: 450px;
+            padding: 15px;
+            background-color: white;
+            color: #2e7d32;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+            word-break: break-all;
+        }
+
+        .contact-link:hover {
+            transform: scale(1.05);
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        @media (max-width: 992px) {
+            .student-profile { padding: 50px 5%; }
+            .page-section { padding: 60px 5%; }
+        }
+
+        @media (max-width: 768px) {
+            .student-profile {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-text {
+                padding-left: 0;
+                padding-top: 30px;
+            }
+
+            .student-photo {
+                max-width: 200px;
+            }
+
+            .page-section {
+                background-attachment: scroll;
+            }
+
+            nav a {
+                font-size: 0.8rem;
+            }
+        }
